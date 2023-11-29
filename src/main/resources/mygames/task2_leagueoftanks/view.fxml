@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchorPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mygames.task2_leagueoftanks.PlayController">
+  <Canvas fx:id="canvas" height="800" width="1532" AnchorPane.topAnchor="30.0" />
+   <Button fx:id="fireButton" layoutX="157.0" layoutY="518.0" mnemonicParsing="false" text="Button" />
+   <Button fx:id="driveButton" layoutX="157.0" layoutY="518.0" mnemonicParsing="false" text="Button" />
+   <Button fx:id="turnTankButton" layoutX="157.0" layoutY="518.0" mnemonicParsing="false" text="Button" />
+   <Button fx:id="turnTurretButton" layoutX="157.0" layoutY="518.0" mnemonicParsing="false" text="Button" />
+   <Button fx:id="endPlayersMoveButton" layoutX="157.0" layoutY="518.0" mnemonicParsing="false" text="Button" />
+   <Button fx:id="cancelButton" layoutX="157.0" layoutY="518.0" mnemonicParsing="false" text="Button" />
+   <Button fx:id="turnRRButton" layoutX="157.0" layoutY="518.0" mnemonicParsing="false" text="Button" />
+   <Button fx:id="turnRDButton" layoutX="157.0" layoutY="518.0" mnemonicParsing="false" text="Button" />
+   <Button fx:id="turnLDButton" layoutX="157.0" layoutY="518.0" mnemonicParsing="false" text="Button" />
+   <Button fx:id="turnLLButton" layoutX="157.0" layoutY="518.0" mnemonicParsing="false" text="Button" />
+   <Button fx:id="turnLUButton" layoutX="157.0" layoutY="518.0" mnemonicParsing="false" text="Button" />
+   <Button fx:id="turnRUButton" layoutX="157.0" layoutY="518.0" mnemonicParsing="false" text="Button" />
+   <TextField fx:id="redFuelMeterTF" layoutX="25.0" layoutY="72.0" />
+   <TextField fx:id="whiteFuelMeterTF" layoutX="686.0" layoutY="72.0" />
+</AnchorPane>
