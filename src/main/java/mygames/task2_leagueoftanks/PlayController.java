@@ -336,11 +336,11 @@ public class PlayController {
             }
         });
 
-        turnLUButton.setText("Повернуть ⇖");
+        turnLUButton.setText("Повернуть ⬉");
         turnLUButton.setStyle("-fx-font: 25 arial; -fx-base: #b6e7c9;");
         turnLUButton.setMinWidth(150);
         turnLUButton.setMinHeight(55);
-        turnLUButton.setLayoutX(296);
+        turnLUButton.setLayoutX(351);
         turnLUButton.setLayoutY(647);
         turnLUButton.setDisable(false);
         turnLUButton.setVisible(false);
@@ -359,11 +359,11 @@ public class PlayController {
             }
         });
 
-        turnLLButton.setText("Повернуть ⇐");
+        turnLLButton.setText("Повернуть ←");
         turnLLButton.setStyle("-fx-font: 25 arial; -fx-base: #b6e7c9;");
         turnLLButton.setMinWidth(150);
         turnLLButton.setMinHeight(55);
-        turnLLButton.setLayoutX(506);
+        turnLLButton.setLayoutX(562);
         turnLLButton.setLayoutY(647);
         turnLLButton.setDisable(false);
         turnLLButton.setVisible(false);
@@ -382,11 +382,11 @@ public class PlayController {
             }
         });
 
-        turnRRButton.setText("Повернуть ⇒");
+        turnRRButton.setText("Повернуть →");
         turnRRButton.setStyle("-fx-font: 25 arial; -fx-base: #b6e7c9;");
         turnRRButton.setMinWidth(150);
         turnRRButton.setMinHeight(55);
-        turnRRButton.setLayoutX(716);
+        turnRRButton.setLayoutX(777);
         turnRRButton.setLayoutY(647);
         turnRRButton.setDisable(false);
         turnRRButton.setVisible(false);
@@ -405,11 +405,11 @@ public class PlayController {
             }
         });
 
-        turnRUButton.setText("Повернуть ⇗");
+        turnRUButton.setText("Повернуть ⬈");
         turnRUButton.setStyle("-fx-font: 25 arial; -fx-base: #b6e7c9;");
         turnRUButton.setMinWidth(150);
         turnRUButton.setMinHeight(55);
-        turnRUButton.setLayoutX(990);
+        turnRUButton.setLayoutX(995);
         turnRUButton.setLayoutY(647);
         turnRUButton.setDisable(false);
         turnRUButton.setVisible(false);
@@ -428,11 +428,11 @@ public class PlayController {
             }
         });
 
-        turnLDButton.setText("Повернуть ⇙");
+        turnLDButton.setText("Повернуть ⬋");
         turnLDButton.setStyle("-fx-font: 25 arial; -fx-base: #b6e7c9;");
         turnLDButton.setMinWidth(150);
         turnLDButton.setMinHeight(55);
-        turnLDButton.setLayoutX(470);
+        turnLDButton.setLayoutX(488);
         turnLDButton.setLayoutY(722);
         turnLDButton.setDisable(false);
         turnLDButton.setVisible(false);
@@ -451,7 +451,7 @@ public class PlayController {
             }
         });
 
-        turnRDButton.setText("Повернуть ⇘");
+        turnRDButton.setText("Повернуть ⬊");
         turnRDButton.setStyle("-fx-font: 25 arial; -fx-base: #b6e7c9;");
         turnRDButton.setMinWidth(150);
         turnRDButton.setMinHeight(55);
@@ -497,7 +497,7 @@ public class PlayController {
         cancelButton.setStyle("-fx-font: 25 arial; -fx-base: #B22222;");
         cancelButton.setMinWidth(150);
         cancelButton.setMinHeight(55);
-        cancelButton.setLayoutX(670);
+        cancelButton.setLayoutX(695);
         cancelButton.setLayoutY(722);
         cancelButton.setDisable(false);
         cancelButton.setVisible(false);
