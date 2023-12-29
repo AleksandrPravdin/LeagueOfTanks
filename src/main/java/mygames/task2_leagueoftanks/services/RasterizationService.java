@@ -70,12 +70,8 @@ public class RasterizationService {
         drawHpAndStamina(g, x + 2, y + 30, BattleService.getBattleField()[currentHexX][currentHexY]);
     }
 
-    private static void drawHpAndStamina(GraphicsContext g, int x, int y, String hex) {
-        drawGrassHex(g, x - 2, y - 30);
+    public static int[] countHpAndStamina(String hex) {
         String typeOfTank = hex.substring(1, 2);
-        String tankPosition = hex.substring(2, 4);
-        String turretPosition = hex.substring(4, 6);
-        String player = hex.substring(6, 7);
         AbstractTank tank = new AbstractTank();
         switch (typeOfTank) {
             case "L" -> tank = new LightTank();
@@ -96,6 +92,13 @@ public class RasterizationService {
             hp = tank.getArmor() - Integer.parseInt(hex.substring(7, 8));
             stamina = tank.getAmmunition() - Integer.parseInt(hex.substring(8, 9));
         }
+        return new int[]{hp, stamina};
+    }
+
+    private static void drawHpAndStamina(GraphicsContext g, int x, int y, String hex) {
+        drawGrassHex(g, x - 2, y - 30);
+        String player = hex.substring(6, 7);
+        int[]hpAndStamina=countHpAndStamina(hex);
         if (player.equals("R")) {
             g.setFill(Color.RED);
         } else {
@@ -103,9 +106,9 @@ public class RasterizationService {
         }
         //g.fillOval(x+20,y+60,6,6);
         g.fillPolygon(new double[]{x + 20, x + 25, x + 30, x + 25}, new double[]{y + 40, y + 35, y + 40, y + 45}, 4);
-        g.fillText(" " + hp, x + 27, y + 43);
+        g.fillText(" " + hpAndStamina[0], x + 27, y + 43);
         g.fillRect(x + 39, y + 35, 4, 10);
-        g.fillText(String.valueOf(stamina), x + 44, y + 43);
+        g.fillText(String.valueOf(hpAndStamina[1]), x + 44, y + 43);
     }
 
     public static void drawTankHex(GraphicsContext g, int x, int y, AnchorPane anchorPane, String hex) {
@@ -274,7 +277,7 @@ public class RasterizationService {
                 Ellipse caterpillar2 = new Ellipse(x + 31, y + 52, 23, 2);
                 Rectangle frame = new Rectangle(x + 8, y + 24, 46, 26);
                 frame.setFill(Color.DARKGRAY);
-                Rectangle turret = new Rectangle(x + 24, y + 27, 26,20);
+                Rectangle turret = new Rectangle(x + 24, y + 27, 26, 20);
                 switch (player) {
                     case "R" -> turret.setFill(Color.DARKRED);
                     case "B" -> turret.setFill(Color.WHITESMOKE);

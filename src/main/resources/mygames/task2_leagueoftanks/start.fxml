@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchorPaneStart" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mygames.task2_leagueoftanks.StartController">
+   <children>
+      <Button fx:id="startGameB" layoutX="291.0" layoutY="175.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="endGameB" layoutX="291.0" layoutY="233.0" mnemonicParsing="false" text="Button" />
+   </children>
+</AnchorPane>

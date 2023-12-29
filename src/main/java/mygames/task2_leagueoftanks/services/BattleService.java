@@ -24,6 +24,15 @@ public class BattleService {
     public static ArrayList<String> shootingHexes = new ArrayList<>();
     public static AbstractTank tank;
     public static AbstractTank tankTarget;
+    public static boolean tankSelected;
+
+    public static boolean isTankSelected() {
+        return tankSelected;
+    }
+
+    public static void setTankSelected(boolean tankSelected) {
+        BattleService.tankSelected = tankSelected;
+    }
 
     public static AbstractTank getTank() {
         return tank;
@@ -110,14 +119,12 @@ public class BattleService {
                 }
                 int hx = Integer.parseInt(hexCenter[j][i].split(" ")[0]);
                 int hy = Integer.parseInt(hexCenter[j][i].split(" ")[1]);
-//                System.out.println(Math.sqrt((hx-x)*(hx-x)+(hy-y)*(hy-y)));
                 if (Math.sqrt((hx - x) * (hx - x) + (hy - y) * (hy - y)) < result) {
                     result = Math.sqrt((hx - x) * (hx - x) + (hy - y) * (hy - y));
                     currentHex = j + " " + i;
                 }
             }
         }
-        // System.out.println(currentHex);
     }
 
     public static boolean checkTankHex() {
@@ -131,6 +138,7 @@ public class BattleService {
                 case "S" -> tank = new SelfPropelledGuns();
                 default -> tank = new LightTank();
             }
+            tankSelected=true;
             if (PlayerService.getPlayer1() && battleField[x][y].substring(6, 7).equals("R")) {
                 return true;
             }
@@ -463,9 +471,6 @@ public class BattleService {
                 }
             }
         }
-        for (int i = 0; i < drivingHexes.size(); i++) {
-            System.out.print(drivingHexes.get(i) + "  ");
-        }
     }
 
     public static void findShootingHexes() {
@@ -662,7 +667,6 @@ public class BattleService {
             int tankHexX = Integer.parseInt(s.split(" ")[0]);
             int tankHexY = Integer.parseInt(s.split(" ")[1]);
             battleField[tankHexX][tankHexY] = battleField[tankHexX][tankHexY].substring(0, 8) + 0;
-            System.out.println(battleField[tankHexX][tankHexY]);
         }
         tanksThatFired.clear();
         return list;
@@ -681,7 +685,9 @@ public class BattleService {
             if (battleField[currentHexX][currentHexY].equals("F")) {
                 battleField[currentHexX][currentHexY] = "G";
                 return 1;
-            } else if (battleField[currentHexX][currentHexY].substring(0, 1).equals("T")) {
+            } else if (battleField[currentHexX][currentHexY].substring(0, 1).equals("T")
+            &&((battleField[currentHexX][currentHexY].substring(6, 7).equals("R")&&PlayerService.getPlayer2())
+            ||(battleField[currentHexX][currentHexY].substring(6, 7).equals("B")&&PlayerService.getPlayer1()))) {
                 switch (battleField[currentHexX][currentHexY].substring(1, 2)) {
                     case "L" -> tankTarget = new LightTank();
                     case "H" -> tankTarget = new HeavyTank();
@@ -690,11 +696,6 @@ public class BattleService {
                     default -> tankTarget = new LightTank();
                 }
                 Random r = new Random();
-                System.out.println(r.nextDouble());
-                System.out.println(r.nextDouble());
-                System.out.println(r.nextDouble());
-                System.out.println(r.nextDouble());
-                System.out.println(r.nextDouble());
                 if (battleField[currentHexX][currentHexY].length() == 7) {
                     if (tank.getDamage() >= tankTarget.getArmor()) {
                         battleField[currentHexX][currentHexY] = "G";
@@ -720,7 +721,7 @@ public class BattleService {
     public static void turn(String turn) {
         int tankHexX = Integer.parseInt(tankHex.split(" ")[0]);
         int tankHexY = Integer.parseInt(tankHex.split(" ")[1]);
-        if (PlayerService.getAction().equals("turnTank")) {
+        if (PlayerService.getAction()==GameState.TURN_TANK) {
             String left = battleField[tankHexX][tankHexY].substring(0, 2);
             String right = battleField[tankHexX][tankHexY].substring(4);
             switch (turn) {
@@ -743,7 +744,7 @@ public class BattleService {
                     case "RU" -> battleField[tankHexX][tankHexY] = leftT + "RU" + rightT;
                 }
             }
-        } else if (PlayerService.getAction().equals("turnTurret")) {
+        } else if (PlayerService.getAction()==GameState.TURN_TURRET) {
             String left = battleField[tankHexX][tankHexY].substring(0, 4);
             String right = battleField[tankHexX][tankHexY].substring(6);
             switch (turn) {

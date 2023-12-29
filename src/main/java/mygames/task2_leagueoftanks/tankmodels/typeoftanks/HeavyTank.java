@@ -14,5 +14,6 @@ public class HeavyTank extends AbstractTank {
         this.fuelForDrive = 2;
         this.fuelForTurnTurret = 1;
         this.fuelForTurnTank = 2;
+        this.name="Тяжёлый танк";
     }
 }

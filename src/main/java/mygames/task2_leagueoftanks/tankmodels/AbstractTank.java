@@ -1,18 +1,21 @@
 package mygames.task2_leagueoftanks.tankmodels;
 
 public class AbstractTank {
-    public int armor;
-    public int damage;
-    public int speed;
-    public int shotRange;
-    public double probabilityPenetration;
-    public int ammunition;
-    public int fuelForFire;
-    public int fuelForDrive;
-    public int fuelForTurnTurret;
-    public int fuelForTurnTank;
+    protected String name;
+    protected int armor;
+    protected int damage;
+    protected int speed;
+    protected int shotRange;
+    protected double probabilityPenetration;
+    protected int ammunition;
+    protected int fuelForFire;
+    protected int fuelForDrive;
+    protected int fuelForTurnTurret;
+    protected int fuelForTurnTank;
 
-
+    public String getName() {
+        return name;
+    }
     public int getArmor() {
         return armor;
     }

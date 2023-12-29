@@ -14,6 +14,7 @@ public class TankDestroyer extends AbstractTank {
         this.fuelForDrive = 2;
         this.fuelForTurnTank = 2;
         this.fuelForTurnTurret = -1;
+        this.name="САУ";
     }
 
 }

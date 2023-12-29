@@ -20,5 +20,6 @@ public class SelfPropelledGuns extends AbstractTank {
         this.fuelForDrive = 2;
         this.fuelForTurnTurret = 2;
         this.fuelForTurnTank = 2;
+        this.name="ПТ САУ";
     }
 }
